@@ -1,0 +1,44 @@
+﻿<Window x:Class="Название.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Название"
+        mc:Ignorable="d"
+        Title="Agent" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" x:Name="LRAgents">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="ID" Width="28"/>
+                <DataGridTextColumn Binding="{Binding Title}" Header="Title" Width="161"/>
+                <DataGridTextColumn Binding="{Binding AgentType.Title}" Header="AgentTypeID" Width="78"/>
+                <DataGridTextColumn Binding="{Binding Address}" Header="Address" Width="168"/>
+                <DataGridTextColumn Binding="{Binding INN}" Header="INN" Width="66"/>
+                <DataGridTextColumn Binding="{Binding KPP}" Header="KPP" Width="66"/>
+                <DataGridTextColumn Binding="{Binding DirectorName}" Header="DirectorName" Width="202"/>
+                <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" Width="110"/>
+                <DataGridTextColumn Binding="{Binding Email}" Header="Email" Width="180"/>
+                <DataGridTemplateColumn Header="Logo">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Width="120" Height="120" Stretch="UniformToFill">
+                                <Image.Source>
+                                    <Binding Path="Logo">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>\agents\picture.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding Priority}" Header="Priority" Width="50"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
